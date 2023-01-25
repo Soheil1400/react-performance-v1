@@ -5,7 +5,7 @@ interface ResetBtnProps {
     setCorrectAnswer: React.Dispatch<React.SetStateAction<string>>
 }
 
-const ResetBtn = ({setCorrectAnswer}: ResetBtnProps) => {
+const ResetBtn = ({setCorrectAnswer}: ResetBtnProps): JSX.Element => {
 
     const handleResetColor = () => {
         setCorrectAnswer(generateColor)

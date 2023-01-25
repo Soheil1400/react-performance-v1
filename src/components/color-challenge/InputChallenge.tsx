@@ -6,7 +6,7 @@ interface InputChallengeProps {
     correctAnswer: string
 }
 
-const InputChallenge = ({colorGuess, setColorGuess, correctAnswer}: InputChallengeProps) => {
+const InputChallenge = ({colorGuess, setColorGuess, correctAnswer}: InputChallengeProps) : JSX.Element => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setColorGuess(e.target.value)
     }
