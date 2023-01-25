@@ -3,10 +3,11 @@ import {createItem, filterItems, getInitialItems, removeItem, updateItem} from "
 import Header from "../components/todo-list/Header";
 import AddNewTodo from "../components/todo-list/AddNewTodo";
 import ListItems from "../components/todo-list/ListItems";
+import { Item } from "../model/todo-list";
 
 
 const TodoList = (): JSX.Element => {
-    const [items, setItems] = useState<any>(getInitialItems());
+    const [items, setItems] = useState<Item[]>(getInitialItems());
     const [newItemName, setNewItemName] = useState('');
 
     const add = (name: string) => {

@@ -1,10 +1,5 @@
 import { v4 as id } from 'uuid';
-
-interface Item {
-    id: string;
-    name: string;
-    packed: boolean;
-}
+import { Item } from '../../model/todo-list';
 
 export const createItem = (name: string): Item => {
     return {

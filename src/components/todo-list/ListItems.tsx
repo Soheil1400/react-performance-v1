@@ -1,9 +1,10 @@
 import Grid from "@mui/material/Grid";
-import Item from "./Item";
+import { Item } from "../../model/todo-list";
+import ItemBox from "./Item";
 
 interface ListItemsProps {
     title: string,
-    items: any
+    items: Item[]
     update: (id: string, updates: any) => void,
     remove: (id: string) => void
 }
@@ -27,7 +28,7 @@ const ListItems = ({items, title, remove, update}: ListItemsProps): JSX.Element 
             </h3>
             <ul style={{display: 'flex', flexDirection: 'column', gap: 10}}>
                 {items.map((item: any) => (
-                    <Item key={item.id} item={item} update={update} remove={remove}/>
+                    <ItemBox key={item.id} item={item} update={update} remove={remove}/>
                 ))}
             </ul>
             {isEmpty && (
