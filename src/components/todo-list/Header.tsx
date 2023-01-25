@@ -1,3 +1,4 @@
+import {memo} from 'react'
 interface HeaderProps {
     items: any
 }
@@ -10,4 +11,4 @@ const Header = ({items}: HeaderProps): JSX.Element => {
     )
 }
 
-export default Header
+export default memo(Header)
