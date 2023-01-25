@@ -9,7 +9,6 @@ const ColorChallenge = (): JSX.Element => {
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <div style={{display: 'flex', flexDirection: 'column', width: 500, padding: 16}}>
                 <Game/>
-                <Expensive/>
             </div>
         </div>
     )
