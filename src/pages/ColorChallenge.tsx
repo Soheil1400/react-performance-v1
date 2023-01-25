@@ -8,7 +8,7 @@ import ColorDisplay from "../components/color-challenge/ColorDisplay";
 import generateColor from "../feature/color-challenge/generateColor";
 
 const ColorChallenge = (): JSX.Element => {
-    const [correctAnswer, setCorrectAnswer] = useState(generateColor())
+    const [correctAnswer, setCorrectAnswer] = useState(() => generateColor())
     const [colorGuess, setColorGuess] = useState<string>('')
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
