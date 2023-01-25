@@ -5,19 +5,16 @@ import InputChallenge from "./InputChallenge"
 import ResetBtn from "./ResetBtn"
 
 import generateColor from "../../feature/color-challenge/generateColor";
+import Expensive from './Expensive';
 
-interface GameProps {
-    children: ReactNode
-}
-
-const Game = ({children}: GameProps) => {
+const Game = () => {
     const [correctAnswer, setCorrectAnswer] = useState(() => generateColor())
     const [colorGuess, setColorGuess] = useState<string>('')
     return(
         <>
             <ColorDisplay correctAnswer={correctAnswer}/>
             <InputChallenge correctAnswer={correctAnswer} colorGuess={colorGuess} setColorGuess={setColorGuess}/>
-            {children}
+            <Expensive/>
             <ResetBtn setCorrectAnswer={setCorrectAnswer}/>
         </>
     )
