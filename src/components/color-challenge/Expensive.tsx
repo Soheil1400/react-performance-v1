@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 
 const Expensive = (): JSX.Element => {
     return (
@@ -12,4 +12,4 @@ const Expensive = (): JSX.Element => {
     )
 }
 
-export default Expensive
+export default memo(Expensive)
