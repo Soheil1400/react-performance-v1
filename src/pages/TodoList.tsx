@@ -1,15 +1,16 @@
-import {useCallback, useMemo, useReducer, useState} from "react";
+import {useCallback, useContext, useMemo, useReducer, useState} from "react";
 import {createItem, filterItems, getInitialItems, removeItem, updateItem} from "../feature/todo-list/itemLogic";
 import Header from "../components/todo-list/Header";
 import AddNewTodo from "../components/todo-list/AddNewTodo";
 import ListItems from "../components/todo-list/ListItems";
 import { Item } from "../model/todo-list";
 import {reducer} from '../reducer/reducer'
+import {ItemsContext} from "../context/context";
 
 
 const TodoList = (): JSX.Element => {
-    const [items, dispatch] = useReducer(reducer,getInitialItems());
     const [newItemName, setNewItemName] = useState('');
+    const items = useContext(ItemsContext)
 
     // const add = useCallback((name: string) => {
     //     const item = createItem(name);
@@ -31,10 +32,10 @@ const TodoList = (): JSX.Element => {
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <div style={{display: 'flex', flexDirection: 'column', width: 900, padding: 16, gap: 10}}>
                 <Header items={items}/>
-                <AddNewTodo newItemName={newItemName} setNewItemName={setNewItemName} dispatch={dispatch}/>
+                <AddNewTodo newItemName={newItemName} setNewItemName={setNewItemName}/>
                 <div style={{display: 'flex', gap: 10}}>
-                    <ListItems title={'packed Items'} items={packedItems} dispatch={dispatch}/>
-                    <ListItems title={'unpacked Items'} items={unpackedItems} dispatch={dispatch}/>
+                    <ListItems title={'packed Items'} items={packedItems}/>
+                    <ListItems title={'unpacked Items'} items={unpackedItems}/>
                 </div>
             </div>
         </div>

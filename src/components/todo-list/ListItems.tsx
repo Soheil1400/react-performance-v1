@@ -1,13 +1,11 @@
 import {memo} from 'react'
 
-import Grid from "@mui/material/Grid";
 import { Item } from "../../model/todo-list";
 import ItemBox from "./Item";
 
 interface ListItemsProps {
     title: string,
     items: Item[]
-    dispatch: any
 }
 
 interface EmptyStateProps {
@@ -20,7 +18,7 @@ const EmptyState = ({id}: EmptyStateProps) => (
     </p>
 );
 
-const ListItems = ({items, title, dispatch}: ListItemsProps): JSX.Element => {
+const ListItems = ({items, title}: ListItemsProps): JSX.Element => {
     const isEmpty = !items.length;
     return (
         <div style={{width: '50%', border: '2px solid purple', borderRadius: 8, padding: 8}}>
@@ -29,7 +27,7 @@ const ListItems = ({items, title, dispatch}: ListItemsProps): JSX.Element => {
             </h3>
             <ul style={{display: 'flex', flexDirection: 'column', gap: 10}}>
                 {items.map((item: any) => (
-                    <ItemBox key={item.id} item={item} dispatch={dispatch}/>
+                    <ItemBox key={item.id} item={item}/>
                 ))}
             </ul>
             {isEmpty && (

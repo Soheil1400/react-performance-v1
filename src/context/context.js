@@ -3,16 +3,16 @@ import {reducer} from "../reducer/reducer";
 import {getInitialItems} from "../feature/todo-list/itemLogic";
 
 
-export const ItemsContext = createContext({})
-export const ActionContext = createContext(()=>{})
+export const ItemsContext = createContext([])
+export const ActionContext = createContext((item)=>{})
 
 
-const ItemProvider = () => {
-    const [items, dispatch] = useReducer(reducer,getInitialItems);
+const ItemProvider = ({children}) => {
+    const [items, dispatch] = useReducer(reducer,getInitialItems());
     return(
         <ItemsContext.Provider value={items}>
             <ActionContext.Provider value={dispatch}>
-
+                {children}
             </ActionContext.Provider>
         </ItemsContext.Provider>
     )

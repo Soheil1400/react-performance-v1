@@ -1,11 +1,13 @@
-import {useState, memo} from "react";
+import {useState, memo, useContext} from "react";
 import {update, remove} from '../../reducer/reducer'
+import {ActionContext} from "../../context/context";
 interface ItemProps {
     item: any,
-    dispatch: any
 }
 
-const Item = ({item, dispatch}: ItemProps) => {
+const Item = ({item}: ItemProps) => {
+    const dispatch = useContext(ActionContext)
+
     const [editing, setEditing] = useState(false);
 
     return (
